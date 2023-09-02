@@ -3,10 +3,13 @@ import './App.css';
 import React from 'react';
 import { useState } from 'react';
 import axios from 'axios';
+import maleAvatar from './male.png'
+import femaleAvatar from './female.png';
 
 function App() {
   const [name, setName] = useState('');
   const [result, setResult] = useState(null);
+  const [error, setError] = useState(null);
 
 
   const handleChange = (e) => {
@@ -17,10 +20,10 @@ function App() {
     try {
       const response = await axios.get(`https://api.genderize.io/?name=${name}`)
       setResult(response.data);
-
+      setError(null);
     } catch (err) {
       setResult(null);
-
+      setError('Invalid Request');
     }
   };
 
@@ -28,27 +31,15 @@ function App() {
     <div className="App">
       <h1>Guessing Gender By Name</h1>
       <input type='text' placeholder='Enter a name' value={name} onChange={handleChange} />
-      <button onClick={fetchGender}>Click</button>
+      <button onClick={fetchGender}>Search</button>
+      {error && <div className='alert'>{error}</div>}
       {result && (
         <div className="result">
-          <table>
-            <thead>
-              <tr>
-                <th>Name</th>
-                <th>Gender</th>
-                <th>Probability</th>
-                <th>Count</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>{result.name}</td>
-                <td>{result.gender}</td>
-                <td>{result.probability}</td>
-                <td>{result.count}</td>
-              </tr>
-            </tbody>
-          </table>
+          <img src={result.gender === 'male' ? maleAvatar : femaleAvatar} alt='Avatar' className='avatar' />
+          <p>{result.name}</p>
+          <p>{result.gender}</p>
+          <p>{result.probability}</p>
+          <p>{result.count}</p>
         </div>
       )}
     </div>
