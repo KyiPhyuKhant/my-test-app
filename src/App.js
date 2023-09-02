@@ -30,14 +30,29 @@ function App() {
       <input type='text' placeholder='Enter a name' value={name} onChange={handleChange} />
       <button onClick={fetchGender}>Click</button>
       {result && (
-        <div>
-          <p>Name: {result.name}</p>
-          <p>Gender: {result.gender}</p>
-          <p>Probability: {result.probability}</p>
-          <p>Count: {result.count}</p>
+        <div className="result">
+          <table>
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Gender</th>
+                <th>Probability</th>
+                <th>Count</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>{result.name}</td>
+                <td>{result.gender}</td>
+                <td>{result.probability}</td>
+                <td>{result.count}</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       )}
     </div>
+
   );
 }
 

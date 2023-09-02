@@ -32,16 +32,16 @@
   from {
     transform: rotate(0deg);
   }
-
   to {
     transform: rotate(360deg);
   }
 }
 
 
-/* GenderGuess.css */
+/* App.css */
 .App {
   text-align: center;
+  font-family: Arial, sans-serif;
 }
 
 h1 {
@@ -79,15 +79,21 @@ button:disabled {
 
 .result {
   margin-top: 20px;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  text-align: left;
 }
 
-.error {
-  color: red;
-  font-weight: bold;
+table {
+  width: 100%;
+  border-collapse: collapse;
   margin-top: 10px;
 }
 
+table th,
+table td {
+  border: 1px solid #ccc;
+  padding: 8px;
+  text-align: left;
+}
+
+table th {
+  background-color: #f2f2f2;
+}
