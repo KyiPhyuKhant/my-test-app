@@ -81,34 +81,54 @@ button:disabled {
   margin-top: 10px;
 }
 
-.result {
-  margin: 20px;
-  padding: 20px;
-  background-color: #fff;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  text-align: left;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-  display: inline-block;
-}
-
-.avatar {
-  width: 120px;
-  height: auto;
-  border-radius: 50%;
-  margin: 10px auto;
-  display: block;
-  float: left;
-}
-
-.info {
-  width: 50%;
-  height: auto;
-  float: left;
-}
-
 .result p {
   margin: 10px 0;
   font-size: 1rem;
   color: #333;
+}
+
+.result {
+  width: 50%;
+  display: flex;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 10px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+  margin: 20px;
+  background-color: #fff;
+  margin: 10px auto;
+}
+
+.avatar {
+  width: 20%;
+  height: auto;
+  border-radius: 50%;
+  margin-right: 20px;
+}
+
+.info {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  text-align: left;
+}
+
+.info p {
+  margin: 5px 0;
+}
+
+@media (max-width: 768px) {
+  .result {
+    flex-direction: column;
+  }
+
+  .avatar {
+    width: 100%;
+    height: auto;
+    margin-right: 0;
+    margin-bottom: 10px;
+
+  }
 }
